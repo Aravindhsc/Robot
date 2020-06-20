@@ -1,0 +1,1508 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.8.0 on win32)" generated="20200617 00:43:32.147" rpa="false">
+<suite id="s1" name="Demo App" source="D:\Eclipse_Workspace\Robot_Assignment\Test\Demo_App.robot">
+<kw name="Prepare suite setup" library="Setup_Teardown" type="setup">
+<kw name="Open Browser" library="SeleniumLibrary">
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<arguments>
+<arg>${url}</arg>
+<arg>${Browser}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:32.356" level="INFO">Opening browser 'chrome' to base url 'http://127.0.0.1:8090'.</msg>
+<status status="PASS" starttime="20200617 00:43:32.356" endtime="20200617 00:43:35.836"></status>
+</kw>
+<kw name="Maximize Browser Window" library="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" starttime="20200617 00:43:35.836" endtime="20200617 00:43:37.984"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Site ${url} is opened</arg>
+</arguments>
+<msg timestamp="20200617 00:43:37.985" level="INFO">Site http://127.0.0.1:8090 is opened</msg>
+<status status="PASS" starttime="20200617 00:43:37.984" endtime="20200617 00:43:37.986"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:32.356" endtime="20200617 00:43:37.986"></status>
+</kw>
+<test id="s1-t1" name="Verify Register page">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>KW Validate Page</arg>
+</arguments>
+<assign>
+<var>${PASSED}</var>
+</assign>
+<kw name="KW Validate Page" library="Demo_App_Keywords">
+<kw name="KW Wait And Get Text" library="Common_keywords">
+<arguments>
+<arg>${APP_TITLE}</arg>
+</arguments>
+<assign>
+<var>${Actual_title}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${elements}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:37.992" endtime="20200617 00:43:38.048"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${elements}</arg>
+</arguments>
+<assign>
+<var>${text}</var>
+</assign>
+<msg timestamp="20200617 00:43:38.098" level="INFO">${text} = Demo app</msg>
+<status status="PASS" starttime="20200617 00:43:38.048" endtime="20200617 00:43:38.098"></status>
+</kw>
+<msg timestamp="20200617 00:43:38.098" level="INFO">${Actual_title} = Demo app</msg>
+<status status="PASS" starttime="20200617 00:43:37.990" endtime="20200617 00:43:38.098"></status>
+</kw>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${Page_title}</arg>
+<arg>${Actual_title}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:38.099" endtime="20200617 00:43:38.099"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>${REGISTER_LINK}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:38.128" level="INFO">Current page contains element 'xpath=//a[@href="/register"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:38.100" endtime="20200617 00:43:38.128"></status>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<arguments>
+<arg>${LOGIN_LINK}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:38.161" level="INFO">Current page contains element 'xpath=//a[@href="/login"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:38.128" endtime="20200617 00:43:38.161"></status>
+</kw>
+<kw name="KW Capture Screenshot" library="Common_keywords">
+<arguments>
+<arg>Demo App</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${SCREENSHOTS}${File_name}.png</arg>
+</arguments>
+<msg timestamp="20200617 00:43:38.499" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Screenshots/Demo%20App.png"&gt;&lt;img src="Screenshots/Demo%20App.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200617 00:43:38.162" endtime="20200617 00:43:38.499"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:38.161" endtime="20200617 00:43:38.500"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:37.989" endtime="20200617 00:43:38.500"></status>
+</kw>
+<msg timestamp="20200617 00:43:38.500" level="INFO">${PASSED} = True</msg>
+<status status="PASS" starttime="20200617 00:43:37.988" endtime="20200617 00:43:38.500"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='True'</arg>
+<arg>Log</arg>
+<arg>HomePage has been Validated successfully</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>HomePage has been Validated successfully</arg>
+</arguments>
+<msg timestamp="20200617 00:43:38.502" level="INFO">HomePage has been Validated successfully</msg>
+<status status="PASS" starttime="20200617 00:43:38.502" endtime="20200617 00:43:38.502"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:38.501" endtime="20200617 00:43:38.502"></status>
+</kw>
+<kw name="Prepare EndTest" library="Setup_Teardown" type="teardown">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<assign>
+<var>${Passed}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200617 00:43:43.928" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200617 00:43:43.668" endtime="20200617 00:43:43.928"></status>
+</kw>
+<msg timestamp="20200617 00:43:43.930" level="FAIL">Element 'xpath=//a[@href="/logout"]' did not appear in 5 seconds.</msg>
+<status status="FAIL" starttime="20200617 00:43:38.504" endtime="20200617 00:43:43.930"></status>
+</kw>
+<msg timestamp="20200617 00:43:43.930" level="INFO">${Passed} = False</msg>
+<status status="PASS" starttime="20200617 00:43:38.504" endtime="20200617 00:43:43.930"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${Passed}'=='True'</arg>
+<arg>KW Wait And Click Element</arg>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:43.930" endtime="20200617 00:43:43.930"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:38.503" endtime="20200617 00:43:43.930"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:37.986" endtime="20200617 00:43:43.932" critical="yes"></status>
+</test>
+<test id="s1-t2" name="Register In To Application">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>KW Register Into Application</arg>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<arg>${Firstname}</arg>
+<arg>${Lastname}</arg>
+<arg>${phone_no}</arg>
+</arguments>
+<assign>
+<var>${PASSED}</var>
+</assign>
+<kw name="KW Register Into Application" library="Demo_App_Keywords">
+<arguments>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<arg>${Firstname}</arg>
+<arg>${Lastname}</arg>
+<arg>${phone_no}</arg>
+</arguments>
+<kw name="KW Wait And Click Element" library="Common_keywords">
+<arguments>
+<arg>${REGISTER_LINK}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:43.934" endtime="20200617 00:43:43.942"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:43.942" level="INFO">Clicking element 'xpath=//a[@href="/register"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:43.942" endtime="20200617 00:43:44.037"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:43.934" endtime="20200617 00:43:44.038"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${REGISTER_TITLE}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:44.038" endtime="20200617 00:43:44.057"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${usrname}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:44.058" level="INFO">Typing text 'Test_1232' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20200617 00:43:44.057" endtime="20200617 00:43:44.171"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:44.172" level="INFO">Typing text 'Test@12345' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20200617 00:43:44.171" endtime="20200617 00:43:44.265"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${FIRSTNAME_INPUT}</arg>
+<arg>${Firstname}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:44.265" level="INFO">Typing text 'Test' into text field 'id=firstname'.</msg>
+<status status="PASS" starttime="20200617 00:43:44.265" endtime="20200617 00:43:44.347"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LASTNAME_INPUT}</arg>
+<arg>${Lastname}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:44.347" level="INFO">Typing text 'user' into text field 'id=lastname'.</msg>
+<status status="PASS" starttime="20200617 00:43:44.347" endtime="20200617 00:43:44.427"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PHONE_NO_INPUT}</arg>
+<arg>${phone_no}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:44.428" level="INFO">Typing text '123454321' into text field 'id=phone'.</msg>
+<status status="PASS" starttime="20200617 00:43:44.427" endtime="20200617 00:43:44.517"></status>
+</kw>
+<kw name="KW Wait And Click Element" library="Common_keywords">
+<arguments>
+<arg>${REGISTER_BUTTON}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:44.517" endtime="20200617 00:43:44.529"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:44.529" level="INFO">Clicking element 'xpath=//input[@value="Register"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:44.529" endtime="20200617 00:43:44.602"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:44.517" endtime="20200617 00:43:44.603"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${USER_EXIST_ERROR}</arg>
+</arguments>
+<assign>
+<var>${PASSED}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${USER_EXIST_ERROR}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:44.603" endtime="20200617 00:43:44.621"></status>
+</kw>
+<msg timestamp="20200617 00:43:44.621" level="INFO">${PASSED} = True</msg>
+<status status="PASS" starttime="20200617 00:43:44.603" endtime="20200617 00:43:44.621"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='True'</arg>
+<arg>KW Handle Registration Failure</arg>
+<arg>ELSE</arg>
+<arg>Page Should Contain Element</arg>
+<arg>${LOGIN_TITLE}</arg>
+</arguments>
+<kw name="KW Handle Registration Failure" library="Demo_App_Keywords">
+<kw name="Fail" library="BuiltIn">
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<arguments>
+<arg>User with Username: ${username} is already registered</arg>
+</arguments>
+<msg timestamp="20200617 00:43:44.622" level="FAIL">User with Username: Test_1232 is already registered</msg>
+<status status="FAIL" starttime="20200617 00:43:44.622" endtime="20200617 00:43:44.622"></status>
+</kw>
+<status status="FAIL" starttime="20200617 00:43:44.622" endtime="20200617 00:43:44.622"></status>
+</kw>
+<status status="FAIL" starttime="20200617 00:43:44.621" endtime="20200617 00:43:44.622"></status>
+</kw>
+<status status="FAIL" starttime="20200617 00:43:43.934" endtime="20200617 00:43:44.622"></status>
+</kw>
+<msg timestamp="20200617 00:43:44.622" level="INFO">${PASSED} = False</msg>
+<status status="PASS" starttime="20200617 00:43:43.933" endtime="20200617 00:43:44.622"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='True'</arg>
+<arg>Log</arg>
+<arg>User with Username: ${username} is registered successfully</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:44.623" endtime="20200617 00:43:44.623"></status>
+</kw>
+<kw name="Prepare EndTest" library="Setup_Teardown" type="teardown">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<assign>
+<var>${Passed}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20200617 00:43:50.027" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200617 00:43:49.734" endtime="20200617 00:43:50.027"></status>
+</kw>
+<msg timestamp="20200617 00:43:50.028" level="FAIL">Element 'xpath=//a[@href="/logout"]' did not appear in 5 seconds.</msg>
+<status status="FAIL" starttime="20200617 00:43:44.624" endtime="20200617 00:43:50.028"></status>
+</kw>
+<msg timestamp="20200617 00:43:50.028" level="INFO">${Passed} = False</msg>
+<status status="PASS" starttime="20200617 00:43:44.624" endtime="20200617 00:43:50.028"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${Passed}'=='True'</arg>
+<arg>KW Wait And Click Element</arg>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:50.028" endtime="20200617 00:43:50.029"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:44.623" endtime="20200617 00:43:50.029"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:43.933" endtime="20200617 00:43:50.029" critical="yes"></status>
+</test>
+<test id="s1-t3" name="Login To Application">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>KW Register Into Application</arg>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<arg>${Firstname}</arg>
+<arg>${Lastname}</arg>
+<arg>${phone_no}</arg>
+</arguments>
+<assign>
+<var>${PASSED}</var>
+</assign>
+<kw name="KW Register Into Application" library="Demo_App_Keywords">
+<arguments>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<arg>${Firstname}</arg>
+<arg>${Lastname}</arg>
+<arg>${phone_no}</arg>
+</arguments>
+<kw name="KW Wait And Click Element" library="Common_keywords">
+<arguments>
+<arg>${REGISTER_LINK}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:50.034" endtime="20200617 00:43:50.049"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:50.050" level="INFO">Clicking element 'xpath=//a[@href="/register"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:50.049" endtime="20200617 00:43:50.149"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:50.033" endtime="20200617 00:43:50.149"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${REGISTER_TITLE}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:50.150" endtime="20200617 00:43:50.163"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${usrname}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:50.164" level="INFO">Typing text 'Test_1232' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20200617 00:43:50.163" endtime="20200617 00:43:50.303"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:50.303" level="INFO">Typing text 'Test@12345' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20200617 00:43:50.303" endtime="20200617 00:43:50.438"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${FIRSTNAME_INPUT}</arg>
+<arg>${Firstname}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:50.438" level="INFO">Typing text 'Test' into text field 'id=firstname'.</msg>
+<status status="PASS" starttime="20200617 00:43:50.438" endtime="20200617 00:43:50.569"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LASTNAME_INPUT}</arg>
+<arg>${Lastname}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:50.569" level="INFO">Typing text 'user' into text field 'id=lastname'.</msg>
+<status status="PASS" starttime="20200617 00:43:50.569" endtime="20200617 00:43:50.699"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PHONE_NO_INPUT}</arg>
+<arg>${phone_no}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:50.700" level="INFO">Typing text '123454321' into text field 'id=phone'.</msg>
+<status status="PASS" starttime="20200617 00:43:50.700" endtime="20200617 00:43:50.893"></status>
+</kw>
+<kw name="KW Wait And Click Element" library="Common_keywords">
+<arguments>
+<arg>${REGISTER_BUTTON}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:50.894" endtime="20200617 00:43:50.910"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:50.911" level="INFO">Clicking element 'xpath=//input[@value="Register"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:50.910" endtime="20200617 00:43:51.036"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:50.893" endtime="20200617 00:43:51.036"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${USER_EXIST_ERROR}</arg>
+</arguments>
+<assign>
+<var>${PASSED}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${USER_EXIST_ERROR}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:51.038" endtime="20200617 00:43:51.049"></status>
+</kw>
+<msg timestamp="20200617 00:43:51.050" level="INFO">${PASSED} = True</msg>
+<status status="PASS" starttime="20200617 00:43:51.037" endtime="20200617 00:43:51.050"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='True'</arg>
+<arg>KW Handle Registration Failure</arg>
+<arg>ELSE</arg>
+<arg>Page Should Contain Element</arg>
+<arg>${LOGIN_TITLE}</arg>
+</arguments>
+<kw name="KW Handle Registration Failure" library="Demo_App_Keywords">
+<kw name="Fail" library="BuiltIn">
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<arguments>
+<arg>User with Username: ${username} is already registered</arg>
+</arguments>
+<msg timestamp="20200617 00:43:51.051" level="FAIL">User with Username: Test_1232 is already registered</msg>
+<status status="FAIL" starttime="20200617 00:43:51.050" endtime="20200617 00:43:51.051"></status>
+</kw>
+<status status="FAIL" starttime="20200617 00:43:51.050" endtime="20200617 00:43:51.051"></status>
+</kw>
+<status status="FAIL" starttime="20200617 00:43:51.050" endtime="20200617 00:43:51.051"></status>
+</kw>
+<status status="FAIL" starttime="20200617 00:43:50.032" endtime="20200617 00:43:51.051"></status>
+</kw>
+<msg timestamp="20200617 00:43:51.051" level="INFO">${PASSED} = False</msg>
+<status status="PASS" starttime="20200617 00:43:50.032" endtime="20200617 00:43:51.051"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='False'</arg>
+<arg>KW Login To Application</arg>
+<arg>${username}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="KW Login To Application" library="Demo_App_Keywords">
+<arguments>
+<arg>${username}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="KW Wait And Click Element" library="Common_keywords">
+<arguments>
+<arg>${LOGIN_LINK}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:51.055" endtime="20200617 00:43:51.065"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:51.065" level="INFO">Clicking element 'xpath=//a[@href="/login"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:51.065" endtime="20200617 00:43:51.155"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:51.054" endtime="20200617 00:43:51.155"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${LOGIN_TITLE}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:51.156" endtime="20200617 00:43:51.173"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${usrname}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:51.174" level="INFO">Typing text 'Test_1232' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20200617 00:43:51.174" endtime="20200617 00:43:51.344"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${passwrd}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:51.345" level="INFO">Typing password into text field 'id=password'.</msg>
+<status status="PASS" starttime="20200617 00:43:51.345" endtime="20200617 00:43:51.525"></status>
+</kw>
+<kw name="KW Wait And Click Element" library="Common_keywords">
+<arguments>
+<arg>${LOGIN_BUTTON}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:51.526" endtime="20200617 00:43:51.548"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:51.548" level="INFO">Clicking element 'xpath=//input[@value="Log In"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:51.548" endtime="20200617 00:43:51.777"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:51.525" endtime="20200617 00:43:51.777"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<assign>
+<var>${PASSED}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:51.778" endtime="20200617 00:43:51.791"></status>
+</kw>
+<msg timestamp="20200617 00:43:51.791" level="INFO">${PASSED} = True</msg>
+<status status="PASS" starttime="20200617 00:43:51.777" endtime="20200617 00:43:51.791"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='False'</arg>
+<arg>FW Handle Login Failure</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:51.791" endtime="20200617 00:43:51.792"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='True'</arg>
+<arg>Get Text</arg>
+<arg>${USERNAME_TITLE}</arg>
+</arguments>
+<assign>
+<var>${Actual_username}</var>
+</assign>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${USERNAME_TITLE}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:51.792" endtime="20200617 00:43:51.820"></status>
+</kw>
+<msg timestamp="20200617 00:43:51.821" level="INFO">${Actual_username} = Test_1232</msg>
+<status status="PASS" starttime="20200617 00:43:51.792" endtime="20200617 00:43:51.821"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='True'</arg>
+<arg>Should Be Equal As Strings</arg>
+<arg>${Actual_username}</arg>
+<arg>${usrname}</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${Actual_username}</arg>
+<arg>${usrname}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:51.821" endtime="20200617 00:43:51.821"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:51.821" endtime="20200617 00:43:51.821"></status>
+</kw>
+<kw name="KW Capture Screenshot" library="Common_keywords">
+<arguments>
+<arg>Login Successful</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${SCREENSHOTS}${File_name}.png</arg>
+</arguments>
+<msg timestamp="20200617 00:43:52.160" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Screenshots/Login%20Successful.png"&gt;&lt;img src="Screenshots/Login%20Successful.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200617 00:43:51.822" endtime="20200617 00:43:52.160"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:51.822" endtime="20200617 00:43:52.160"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:51.053" endtime="20200617 00:43:52.160"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:51.052" endtime="20200617 00:43:52.160"></status>
+</kw>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>User Logged into the application successfully</arg>
+</arguments>
+<msg timestamp="20200617 00:43:52.161" level="INFO">User Logged into the application successfully</msg>
+<status status="PASS" starttime="20200617 00:43:52.161" endtime="20200617 00:43:52.161"></status>
+</kw>
+<kw name="Prepare EndTest" library="Setup_Teardown" type="teardown">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<assign>
+<var>${Passed}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:52.163" endtime="20200617 00:43:52.176"></status>
+</kw>
+<msg timestamp="20200617 00:43:52.177" level="INFO">${Passed} = True</msg>
+<status status="PASS" starttime="20200617 00:43:52.162" endtime="20200617 00:43:52.177"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${Passed}'=='True'</arg>
+<arg>KW Wait And Click Element</arg>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<kw name="KW Wait And Click Element" library="Common_keywords">
+<arguments>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:52.178" endtime="20200617 00:43:52.187"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:52.188" level="INFO">Clicking element 'xpath=//a[@href="/logout"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:52.188" endtime="20200617 00:43:52.324"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:52.177" endtime="20200617 00:43:52.324"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:52.177" endtime="20200617 00:43:52.324"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:52.162" endtime="20200617 00:43:52.324"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:50.031" endtime="20200617 00:43:52.326" critical="yes"></status>
+</test>
+<test id="s1-t4" name="Validate User Details">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>KW Register Into Application</arg>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<arg>${Firstname}</arg>
+<arg>${Lastname}</arg>
+<arg>${phone_no}</arg>
+</arguments>
+<assign>
+<var>${PASSED}</var>
+</assign>
+<kw name="KW Register Into Application" library="Demo_App_Keywords">
+<arguments>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<arg>${Firstname}</arg>
+<arg>${Lastname}</arg>
+<arg>${phone_no}</arg>
+</arguments>
+<kw name="KW Wait And Click Element" library="Common_keywords">
+<arguments>
+<arg>${REGISTER_LINK}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:52.328" endtime="20200617 00:43:52.341"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:52.342" level="INFO">Clicking element 'xpath=//a[@href="/register"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:52.342" endtime="20200617 00:43:52.472"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:52.328" endtime="20200617 00:43:52.472"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${REGISTER_TITLE}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:52.472" endtime="20200617 00:43:52.486"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${usrname}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:52.487" level="INFO">Typing text 'Test_1232' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20200617 00:43:52.486" endtime="20200617 00:43:52.631"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${password}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:52.631" level="INFO">Typing text 'Test@12345' into text field 'id=password'.</msg>
+<status status="PASS" starttime="20200617 00:43:52.631" endtime="20200617 00:43:52.758"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${FIRSTNAME_INPUT}</arg>
+<arg>${Firstname}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:52.758" level="INFO">Typing text 'Test' into text field 'id=firstname'.</msg>
+<status status="PASS" starttime="20200617 00:43:52.758" endtime="20200617 00:43:52.915"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${LASTNAME_INPUT}</arg>
+<arg>${Lastname}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:52.915" level="INFO">Typing text 'user' into text field 'id=lastname'.</msg>
+<status status="PASS" starttime="20200617 00:43:52.915" endtime="20200617 00:43:53.061"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PHONE_NO_INPUT}</arg>
+<arg>${phone_no}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:53.061" level="INFO">Typing text '123454321' into text field 'id=phone'.</msg>
+<status status="PASS" starttime="20200617 00:43:53.061" endtime="20200617 00:43:53.186"></status>
+</kw>
+<kw name="KW Wait And Click Element" library="Common_keywords">
+<arguments>
+<arg>${REGISTER_BUTTON}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:53.187" endtime="20200617 00:43:53.203"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:53.203" level="INFO">Clicking element 'xpath=//input[@value="Register"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:53.203" endtime="20200617 00:43:53.337"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:53.186" endtime="20200617 00:43:53.337"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${USER_EXIST_ERROR}</arg>
+</arguments>
+<assign>
+<var>${PASSED}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${USER_EXIST_ERROR}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:53.339" endtime="20200617 00:43:53.350"></status>
+</kw>
+<msg timestamp="20200617 00:43:53.350" level="INFO">${PASSED} = True</msg>
+<status status="PASS" starttime="20200617 00:43:53.338" endtime="20200617 00:43:53.350"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='True'</arg>
+<arg>KW Handle Registration Failure</arg>
+<arg>ELSE</arg>
+<arg>Page Should Contain Element</arg>
+<arg>${LOGIN_TITLE}</arg>
+</arguments>
+<kw name="KW Handle Registration Failure" library="Demo_App_Keywords">
+<kw name="Fail" library="BuiltIn">
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<arguments>
+<arg>User with Username: ${username} is already registered</arg>
+</arguments>
+<msg timestamp="20200617 00:43:53.351" level="FAIL">User with Username: Test_1232 is already registered</msg>
+<status status="FAIL" starttime="20200617 00:43:53.351" endtime="20200617 00:43:53.351"></status>
+</kw>
+<status status="FAIL" starttime="20200617 00:43:53.351" endtime="20200617 00:43:53.351"></status>
+</kw>
+<status status="FAIL" starttime="20200617 00:43:53.350" endtime="20200617 00:43:53.351"></status>
+</kw>
+<status status="FAIL" starttime="20200617 00:43:52.328" endtime="20200617 00:43:53.351"></status>
+</kw>
+<msg timestamp="20200617 00:43:53.351" level="INFO">${PASSED} = False</msg>
+<status status="PASS" starttime="20200617 00:43:52.327" endtime="20200617 00:43:53.351"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='False'</arg>
+<arg>KW Login To Application</arg>
+<arg>${username}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="KW Login To Application" library="Demo_App_Keywords">
+<arguments>
+<arg>${username}</arg>
+<arg>${password}</arg>
+</arguments>
+<kw name="KW Wait And Click Element" library="Common_keywords">
+<arguments>
+<arg>${LOGIN_LINK}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:53.354" endtime="20200617 00:43:53.364"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:53.365" level="INFO">Clicking element 'xpath=//a[@href="/login"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:53.365" endtime="20200617 00:43:53.510"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:53.354" endtime="20200617 00:43:53.510"></status>
+</kw>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${LOGIN_TITLE}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:53.511" endtime="20200617 00:43:53.528"></status>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${USERNAME_INPUT}</arg>
+<arg>${usrname}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:53.530" level="INFO">Typing text 'Test_1232' into text field 'id=username'.</msg>
+<status status="PASS" starttime="20200617 00:43:53.529" endtime="20200617 00:43:53.640"></status>
+</kw>
+<kw name="Input Password" library="SeleniumLibrary">
+<doc>Types the given password into the text field identified by ``locator``.</doc>
+<arguments>
+<arg>${PASSWORD_INPUT}</arg>
+<arg>${passwrd}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:53.640" level="INFO">Typing password into text field 'id=password'.</msg>
+<status status="PASS" starttime="20200617 00:43:53.640" endtime="20200617 00:43:53.749"></status>
+</kw>
+<kw name="KW Wait And Click Element" library="Common_keywords">
+<arguments>
+<arg>${LOGIN_BUTTON}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:53.750" endtime="20200617 00:43:53.756"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:53.757" level="INFO">Clicking element 'xpath=//input[@value="Log In"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:53.756" endtime="20200617 00:43:53.982"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:53.749" endtime="20200617 00:43:53.982"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<assign>
+<var>${PASSED}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:53.983" endtime="20200617 00:43:54.003"></status>
+</kw>
+<msg timestamp="20200617 00:43:54.003" level="INFO">${PASSED} = True</msg>
+<status status="PASS" starttime="20200617 00:43:53.982" endtime="20200617 00:43:54.004"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='False'</arg>
+<arg>FW Handle Login Failure</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:54.004" endtime="20200617 00:43:54.005"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='True'</arg>
+<arg>Get Text</arg>
+<arg>${USERNAME_TITLE}</arg>
+</arguments>
+<assign>
+<var>${Actual_username}</var>
+</assign>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>${USERNAME_TITLE}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:54.006" endtime="20200617 00:43:54.036"></status>
+</kw>
+<msg timestamp="20200617 00:43:54.036" level="INFO">${Actual_username} = Test_1232</msg>
+<status status="PASS" starttime="20200617 00:43:54.005" endtime="20200617 00:43:54.036"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='True'</arg>
+<arg>Should Be Equal As Strings</arg>
+<arg>${Actual_username}</arg>
+<arg>${usrname}</arg>
+</arguments>
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${Actual_username}</arg>
+<arg>${usrname}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:54.038" endtime="20200617 00:43:54.038"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.037" endtime="20200617 00:43:54.038"></status>
+</kw>
+<kw name="KW Capture Screenshot" library="Common_keywords">
+<arguments>
+<arg>Login Successful</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${SCREENSHOTS}${File_name}.png</arg>
+</arguments>
+<msg timestamp="20200617 00:43:54.348" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Screenshots/Login%20Successful.png"&gt;&lt;img src="Screenshots/Login%20Successful.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200617 00:43:54.039" endtime="20200617 00:43:54.348"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.038" endtime="20200617 00:43:54.348"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:53.354" endtime="20200617 00:43:54.348"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:53.352" endtime="20200617 00:43:54.348"></status>
+</kw>
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>KW Validate user details</arg>
+</arguments>
+<assign>
+<var>${PASSED}</var>
+</assign>
+<kw name="KW Validate user details" library="Demo_App_Keywords">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<doc>Returns the number of elements matching ``locator``.</doc>
+<arguments>
+<arg>${TABLE_ROW}</arg>
+</arguments>
+<assign>
+<var>${element_count}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.367" level="INFO">${element_count} = 5</msg>
+<status status="PASS" starttime="20200617 00:43:54.350" endtime="20200617 00:43:54.367"></status>
+</kw>
+<kw name="Create Dictionary" library="BuiltIn">
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<assign>
+<var>&amp;{user_dictionary}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.369" level="INFO">&amp;{user_dictionary} = { }</msg>
+<status status="PASS" starttime="20200617 00:43:54.368" endtime="20200617 00:43:54.369"></status>
+</kw>
+<kw name="${i} IN RANGE [ 2 | ${element_count}+1 ]" type="for">
+<kw name="${i} = 2" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//table//tr[${i}]/td</arg>
+</arguments>
+<assign>
+<var>${key_data}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.416" level="INFO">${key_data} = Username</msg>
+<status status="PASS" starttime="20200617 00:43:54.370" endtime="20200617 00:43:54.416"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//table//tr[${i}]/td[2]</arg>
+</arguments>
+<assign>
+<var>${Value_data}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.454" level="INFO">${Value_data} = Test_1232</msg>
+<status status="PASS" starttime="20200617 00:43:54.416" endtime="20200617 00:43:54.454"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${user_dictionary}</arg>
+<arg>${key_data}</arg>
+<arg>${Value_data}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:54.455" endtime="20200617 00:43:54.455"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.369" endtime="20200617 00:43:54.455"></status>
+</kw>
+<kw name="${i} = 3" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//table//tr[${i}]/td</arg>
+</arguments>
+<assign>
+<var>${key_data}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.506" level="INFO">${key_data} = First name</msg>
+<status status="PASS" starttime="20200617 00:43:54.456" endtime="20200617 00:43:54.506"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//table//tr[${i}]/td[2]</arg>
+</arguments>
+<assign>
+<var>${Value_data}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.554" level="INFO">${Value_data} = Test</msg>
+<status status="PASS" starttime="20200617 00:43:54.506" endtime="20200617 00:43:54.554"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${user_dictionary}</arg>
+<arg>${key_data}</arg>
+<arg>${Value_data}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:54.554" endtime="20200617 00:43:54.554"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.455" endtime="20200617 00:43:54.555"></status>
+</kw>
+<kw name="${i} = 4" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//table//tr[${i}]/td</arg>
+</arguments>
+<assign>
+<var>${key_data}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.596" level="INFO">${key_data} = Last name</msg>
+<status status="PASS" starttime="20200617 00:43:54.555" endtime="20200617 00:43:54.596"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//table//tr[${i}]/td[2]</arg>
+</arguments>
+<assign>
+<var>${Value_data}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.637" level="INFO">${Value_data} = user</msg>
+<status status="PASS" starttime="20200617 00:43:54.596" endtime="20200617 00:43:54.637"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${user_dictionary}</arg>
+<arg>${key_data}</arg>
+<arg>${Value_data}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:54.638" endtime="20200617 00:43:54.638"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.555" endtime="20200617 00:43:54.638"></status>
+</kw>
+<kw name="${i} = 5" type="foritem">
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//table//tr[${i}]/td</arg>
+</arguments>
+<assign>
+<var>${key_data}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.685" level="INFO">${key_data} = Phone number</msg>
+<status status="PASS" starttime="20200617 00:43:54.639" endtime="20200617 00:43:54.685"></status>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<arguments>
+<arg>xpath=//table//tr[${i}]/td[2]</arg>
+</arguments>
+<assign>
+<var>${Value_data}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.734" level="INFO">${Value_data} = 123454321</msg>
+<status status="PASS" starttime="20200617 00:43:54.685" endtime="20200617 00:43:54.734"></status>
+</kw>
+<kw name="Set To Dictionary" library="Collections">
+<doc>Adds the given ``key_value_pairs`` and ``items`` to the ``dictionary``.</doc>
+<arguments>
+<arg>${user_dictionary}</arg>
+<arg>${key_data}</arg>
+<arg>${Value_data}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:54.735" endtime="20200617 00:43:54.735"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.638" endtime="20200617 00:43:54.735"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.369" endtime="20200617 00:43:54.735"></status>
+</kw>
+<kw name="Convert To Dictionary" library="Collections">
+<doc>Converts the given ``item`` to a Python ``dict`` type.</doc>
+<arguments>
+<arg>${user_dictionary}</arg>
+</arguments>
+<assign>
+<var>&amp;{new_dictonary}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.736" level="INFO">&amp;{new_dictonary} = { Username=Test_1232 | First name=Test | Last name=user | Phone number=123454321 }</msg>
+<status status="PASS" starttime="20200617 00:43:54.735" endtime="20200617 00:43:54.736"></status>
+</kw>
+<kw name="Create List" library="BuiltIn">
+<doc>Returns a list containing given items.</doc>
+<arguments>
+<arg>${username}</arg>
+<arg>${Firstname}</arg>
+<arg>${Lastname}</arg>
+<arg>${phone_no}</arg>
+</arguments>
+<assign>
+<var>@{test_data_list}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.736" level="INFO">@{test_data_list} = [ Test_1232 | Test | user | 123454321 ]</msg>
+<status status="PASS" starttime="20200617 00:43:54.736" endtime="20200617 00:43:54.736"></status>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<arguments>
+<arg>0</arg>
+</arguments>
+<assign>
+<var>${i}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.737" level="INFO">${i} = 0</msg>
+<status status="PASS" starttime="20200617 00:43:54.737" endtime="20200617 00:43:54.737"></status>
+</kw>
+<kw name="${key} IN [ @{new_dictonary} ]" type="for">
+<kw name="${key} = Username" type="foritem">
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${new_dictonary}[${key}]</arg>
+<arg>${test_data_list}[${i}]</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:54.737" endtime="20200617 00:43:54.738"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${i}+1</arg>
+</arguments>
+<assign>
+<var>${i}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.738" level="INFO">${i} = 1</msg>
+<status status="PASS" starttime="20200617 00:43:54.738" endtime="20200617 00:43:54.738"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.737" endtime="20200617 00:43:54.739"></status>
+</kw>
+<kw name="${key} = First name" type="foritem">
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${new_dictonary}[${key}]</arg>
+<arg>${test_data_list}[${i}]</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:54.739" endtime="20200617 00:43:54.740"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${i}+1</arg>
+</arguments>
+<assign>
+<var>${i}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.740" level="INFO">${i} = 2</msg>
+<status status="PASS" starttime="20200617 00:43:54.740" endtime="20200617 00:43:54.741"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.739" endtime="20200617 00:43:54.741"></status>
+</kw>
+<kw name="${key} = Last name" type="foritem">
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${new_dictonary}[${key}]</arg>
+<arg>${test_data_list}[${i}]</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:54.741" endtime="20200617 00:43:54.742"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${i}+1</arg>
+</arguments>
+<assign>
+<var>${i}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.742" level="INFO">${i} = 3</msg>
+<status status="PASS" starttime="20200617 00:43:54.742" endtime="20200617 00:43:54.742"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.741" endtime="20200617 00:43:54.743"></status>
+</kw>
+<kw name="${key} = Phone number" type="foritem">
+<kw name="Should Be Equal As Strings" library="BuiltIn">
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<arguments>
+<arg>${new_dictonary}[${key}]</arg>
+<arg>${test_data_list}[${i}]</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:54.743" endtime="20200617 00:43:54.744"></status>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<doc>Evaluates the given expression in Python and returns the results.</doc>
+<arguments>
+<arg>${i}+1</arg>
+</arguments>
+<assign>
+<var>${i}</var>
+</assign>
+<msg timestamp="20200617 00:43:54.744" level="INFO">${i} = 4</msg>
+<status status="PASS" starttime="20200617 00:43:54.744" endtime="20200617 00:43:54.744"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.743" endtime="20200617 00:43:54.744"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.737" endtime="20200617 00:43:54.744"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.350" endtime="20200617 00:43:54.745"></status>
+</kw>
+<msg timestamp="20200617 00:43:54.745" level="INFO">${PASSED} = True</msg>
+<status status="PASS" starttime="20200617 00:43:54.349" endtime="20200617 00:43:54.745"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${PASSED}'=='True'</arg>
+<arg>Log</arg>
+<arg>Validation of user details was successful</arg>
+</arguments>
+<kw name="Log" library="BuiltIn">
+<doc>Logs the given message with the given level.</doc>
+<arguments>
+<arg>Validation of user details was successful</arg>
+</arguments>
+<msg timestamp="20200617 00:43:54.748" level="INFO">Validation of user details was successful</msg>
+<status status="PASS" starttime="20200617 00:43:54.748" endtime="20200617 00:43:54.748"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.747" endtime="20200617 00:43:54.748"></status>
+</kw>
+<kw name="KW Capture Screenshot" library="Common_keywords">
+<arguments>
+<arg>Table validation</arg>
+</arguments>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<arguments>
+<arg>${SCREENSHOTS}${File_name}.png</arg>
+</arguments>
+<msg timestamp="20200617 00:43:55.061" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="Screenshots/Table%20validation.png"&gt;&lt;img src="Screenshots/Table%20validation.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20200617 00:43:54.749" endtime="20200617 00:43:55.062"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:54.749" endtime="20200617 00:43:55.062"></status>
+</kw>
+<kw name="Prepare EndTest" library="Setup_Teardown" type="teardown">
+<kw name="Run Keyword And Return Status" library="BuiltIn">
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<arguments>
+<arg>Wait Until Page Contains Element</arg>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<assign>
+<var>${Passed}</var>
+</assign>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:55.064" endtime="20200617 00:43:55.081"></status>
+</kw>
+<msg timestamp="20200617 00:43:55.081" level="INFO">${Passed} = True</msg>
+<status status="PASS" starttime="20200617 00:43:55.063" endtime="20200617 00:43:55.081"></status>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<arguments>
+<arg>'${Passed}'=='True'</arg>
+<arg>KW Wait And Click Element</arg>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<kw name="KW Wait And Click Element" library="Common_keywords">
+<arguments>
+<arg>${LOGOUT_LINK}</arg>
+</arguments>
+<kw name="Wait Until Page Contains Element" library="SeleniumLibrary">
+<doc>Waits until the element ``locator`` appears on the current page.</doc>
+<arguments>
+<arg>${element}</arg>
+<arg>10</arg>
+</arguments>
+<status status="PASS" starttime="20200617 00:43:55.084" endtime="20200617 00:43:55.101"></status>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<doc>Click the element identified by ``locator``.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20200617 00:43:55.102" level="INFO">Clicking element 'xpath=//a[@href="/logout"]'.</msg>
+<status status="PASS" starttime="20200617 00:43:55.101" endtime="20200617 00:43:55.204"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:55.083" endtime="20200617 00:43:55.204"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:55.082" endtime="20200617 00:43:55.204"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:55.063" endtime="20200617 00:43:55.205"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:52.327" endtime="20200617 00:43:55.205" critical="yes"></status>
+</test>
+<kw name="Prepare Suite Teardown" library="Setup_Teardown" type="teardown">
+<kw name="Close All Browsers" library="SeleniumLibrary">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" starttime="20200617 00:43:55.207" endtime="20200617 00:43:57.388"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:55.207" endtime="20200617 00:43:57.389"></status>
+</kw>
+<status status="PASS" starttime="20200617 00:43:32.149" endtime="20200617 00:43:57.389"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="4" fail="0">Critical Tests</stat>
+<stat pass="4" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="4" fail="0" id="s1" name="Demo App">Demo App</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

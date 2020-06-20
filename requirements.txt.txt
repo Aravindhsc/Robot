@@ -1,0 +1,6 @@
+robotframework-seleniumlibrary==3.0.0a2
+requests>=2.22.0
+pytest>=5.4.3
+setuptools>=41.2.0
+selenium>=3.141.0
+jsonpath>=0.82
