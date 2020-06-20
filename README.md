@@ -12,14 +12,14 @@ Demo App Assignment
 To run Robot project
 •	Open command prompt from the test folder in the project and run the below command
 
-                  **robot Demo_App.robot**
+                  robot Demo_App.robot
 
 •	“report.html” gets generate in the project folder along with screenshots in the Screenshots folder.
 	
   To run API project
 •	Open command prompt from API_Module folder in project and run the below command
 
-                  **Pytest Test_DemoApp.py**
+                  Pytest Test_DemoApp.py
 
 FAQ
 1.	How do you review code? 
