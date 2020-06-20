@@ -1,15 +1,25 @@
 # Robot
 Demo App Assignment
   Approach Followed:
+  
     •	UI Automation – Robot Framework
+    
     •	API Automation – Python
+    
     •	Unit test – Unit test framework
+    
 	**Pre-requisite**
+	
 •	Python 3.7 or above
+
 •	Install libraries in requirement.txt
+
 1.	Install python and set the environment variables for python.
+
 2.	Install the requirments.txt using “pip install -r requirments.txt”
+
 To run Robot project
+
 •	Open command prompt from the test folder in the project and run the below command
 
                   robot Demo_App.robot
@@ -17,6 +27,7 @@ To run Robot project
 •	“report.html” gets generate in the project folder along with screenshots in the Screenshots folder.
 	
   To run API project
+  
 •	Open command prompt from API_Module folder in project and run the below command
 
                   Pytest Test_DemoApp.py
