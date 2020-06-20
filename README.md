@@ -11,12 +11,14 @@ Demo App Assignment
 2.	Install the requirments.txt using “pip install -r requirments.txt”
 To run Robot project
 •	Open command prompt from the test folder in the project and run the below command
+
                   **robot Demo_App.robot**
 
 •	“report.html” gets generate in the project folder along with screenshots in the Screenshots folder.
 	
   To run API project
 •	Open command prompt from API_Module folder in project and run the below command
+
                   **Pytest Test_DemoApp.py**
 
 FAQ
